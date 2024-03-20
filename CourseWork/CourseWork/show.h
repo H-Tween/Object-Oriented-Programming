@@ -8,9 +8,8 @@ class show
 {
 public:
 	show();
-	~show();
 	void selectShow(string& showName, string& showDate);
-	string selectTime();
+	string selectTime(string& showName, string& showDate);
 protected:
 	string showName;
 	string showDate;
@@ -23,12 +22,6 @@ show::show()
 	showName = "";
 	showDate = "";
 	showTime = "";
-}
-
-//destructor
-show::~show()
-{
-
 }
 
 //customer selects upcoming show
@@ -77,6 +70,31 @@ void show::selectShow(string& showName, string& showDate)
 
 //customer selects 1pm/7pm showing
 
-string show::selectTime();
+string show::selectTime(string& showName, string& showDate)
 {
+	char ch;
+	char terminator;
+	cout << "\nFor the show " << showName << " showing at " << showDate << ", the available viewing times are 1pm or 7pm. Please select which time you want to select by entering either '1' or '7'" << endl;
+	cout << "Please enter your number: ";
+	cin.get(ch);
+
+	while (ch != '1' && ch != '7')
+	{
+		cin.clear();
+		cin.ignore(100, '\n');
+		cout << "Please select a valid show time: ";
+		cin.get(ch);
+	}
+
+	switch (ch)
+	{
+	case '1': showTime = "1pm";
+		break;
+	case '7': showTime = "7pm";
+		break;
+	}
+
+	cin.get(terminator);
+	return showTime;
+
 }

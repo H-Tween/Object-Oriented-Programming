@@ -9,9 +9,8 @@ class customer
 {
 public:
 	customer();
-	~customer();
 	void getLogin();
-	void getProfileInfo(string& fName, string& sName, string& address);
+	void getProfileInfo(string &fName, string &sName, string &address);
 	void getPaymentInfo();
 
 protected:
@@ -29,12 +28,6 @@ customer::customer()
 	address = "";
 }
 
-//destructor
-customer::~customer()
-{
-
-}
-
 //customer logs in
 void customer::getLogin()
 {
@@ -44,7 +37,7 @@ void customer::getLogin()
 	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~Log In~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" << endl;
 	cout << "\n Welcome to the Bucks Centre for the Preforming Arts ticket purchasing system!" << endl;
 	cout << "			Please log in." << endl;
-	cout << "Enter username:";
+	cout << "Enter username: ";
 	getline(cin, username);
 
 	while (username.length() > 10)
@@ -65,8 +58,17 @@ void customer::getLogin()
 	}
 }
 
-void customer::getProfileInfo(string& fName, string& sName, string& address)
+void customer::getProfileInfo(string &fName, string &sName, string &address)
 {
+
+	cout << "\nEnter your first name: ";
+	getline(cin, fName);
+
+	cout << "\nEnter your surname: ";
+	getline(cin, sName);
+
+	cout << "\nEnter your address: ";
+	getline(cin, address);
 
 }
 
