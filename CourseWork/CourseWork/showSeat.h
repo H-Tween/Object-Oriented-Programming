@@ -11,16 +11,12 @@ public:
 	void initialiseFloorPlan();
 	int getNumSeats();
 	double getSeatSelection(int numSeats);
-
-private:
+	void updateFloorPlan();
 	void displayFloorPlan();
-	void calculatePrice(double& price);
 
 protected:
 	char floorPlan[7][6];
 	int numSeats;
-	int rNum;
-	double price;
 	int numOfRows = 7;
 	int numOfColumns = 6;
 };
@@ -34,8 +30,6 @@ showSeat::showSeat()
 			floorPlan[r][c] = '0';
 
 			numSeats = 0;
-			rNum = 0;
-			price = 0;
 }
 
 //initialise theatre floor plan
@@ -131,4 +125,17 @@ void showSeat::displayFloorPlan()
 		}
 		cout << endl;
 	}
+}
+
+void showSeat::updateFloorPlan()
+{
+	for (int i = 0; i < numOfRows; i++) {
+		for (int j = 0; j < numOfColumns; j++) {
+			if (floorPlan[i][j] == 'H')
+			{
+				floorPlan[i][j] = 'S';
+			}
+		}
+	}
+	cout << "\nSeating Updated\n";
 }

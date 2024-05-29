@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-//#include "ticket.h"
+#include "ticket.h"
 #include "customer.h"
 #include "show.h"
 #include "showSeat.h"
@@ -13,12 +13,12 @@ int main()
 	int d;
 	double e;
 	char ch, terminator;
-
+	
 	//objects
 	showSeat SEAT;
 	customer CUST;
 	show SHOW;
-	//ticket* TICK;
+	ticket TICK;
 
 	//customer info
 	CUST.getLogin();
@@ -48,9 +48,6 @@ int main()
 		return EXIT_SUCCESS;
 	}
 
-
-	//deals
-
 	do
 	{
 		SHOW.selectShow(a, b);
@@ -69,13 +66,11 @@ int main()
 	SEAT.initialiseFloorPlan();
 	d = SEAT.getNumSeats();
 	e = SEAT.getSeatSelection(d); 
+	TICK.setPrice(e);
+	SEAT.updateFloorPlan();
+	TICK.printTicket(a, b, c, d, f, g, h);
 
-	// deals with discounts, payment and ticket generation and calculating price (take in seat selection)
-
-
-	/*void showSeat::calculatePrice(double& price)
-	{
-
-	}*/
+	cout << "Updated Floor Plan \n";
+	SEAT.displayFloorPlan();
 
 }

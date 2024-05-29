@@ -11,10 +11,9 @@ public:
 	customer();
 	void getLogin();
 	void getProfileInfo(string &fName, string &sName, string &address);
-	void getPaymentInfo();
 
 protected:
-	string fname;
+	string fName;
 	string sName;
 	string address;
 };
@@ -23,7 +22,7 @@ protected:
 
 customer::customer()
 {
-	fname = "";
+	fName = "";
 	sName = "";
 	address = "";
 }
@@ -69,11 +68,5 @@ void customer::getProfileInfo(string &fName, string &sName, string &address)
 
 	cout << "\nEnter your address: ";
 	getline(cin, address);
-
-}
-
-
-void customer::getPaymentInfo()
-{
 
 }
